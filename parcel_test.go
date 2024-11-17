@@ -63,6 +63,7 @@ func TestAddGetDelete(t *testing.T) {
 
 	// проверьте, что посылку больше нельзя получить из БД
 	_, err = store.Get(id)
+	require.Equal(t, err, sql.ErrNoRows)
 	require.Error(t, err)
 }
 
